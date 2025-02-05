@@ -1,9 +1,9 @@
-@exends("layouts.defaults")
+@exends("layouts.app")
 
 @section("content")
-<div class="card shadow-sm"  style="max-width: 500px">
+<div class="shadow-sm card"  style="max-width: 500px">
     <form class="p-3" method="POST" action="">
-        <div class="card shadow-sm"  style="max-width: 500px">
+        <div class="shadow-sm card"  style="max-width: 500px">
 
             <input type="text" name="title" class="form-control">
           </div>

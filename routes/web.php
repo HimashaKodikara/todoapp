@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-// Authenticated routes
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', function () {
@@ -24,5 +24,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Task routes
-    Route::get('/task/add', [TaskManager::class, 'addTask'])->name('task.add');
+    Route::get('task/add', [TaskManager::class, 'addTask'])->name('task.add');
 });

@@ -7,7 +7,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <ul class="mb-2 navbar-nav me-auto mb-md-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
@@ -19,8 +19,7 @@
             </li>
           </ul>
 
-
-            <button class="btn btn-outline-success" type="submit" href={{route("task.add")}}>Add Task</button>
+          <a href="{{ route('task.add') }}" class="btn btn-outline-success">Add Task</a>
 
         </div>
       </div>
