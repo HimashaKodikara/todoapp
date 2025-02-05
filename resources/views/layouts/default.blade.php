@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>@yield("title","To Do App")</title>
     <link href={{asset("assets/css/boostrap.min..css")}} rel="stylesheet">
+    @yield("style")
   </head>
   <body>
     <div>
+        @yield("content")
     </div>
     <script src="{{("assets/js/boostrap.min.js")}}"></script>
   </body>
