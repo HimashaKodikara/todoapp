@@ -13,7 +13,7 @@ class AuthManager extends Controller
         return view('auth.login');
 
     }
-    public function loginPost(Request $request )
+    public function loginPost(Request $request)
     {
         dd($request);
       $request->validate([
