@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class AuthManager extends Controller
 {
-    function login()
+
+    public function login()
     {
         return view('auth.login');
 
     }
-    function loginPost(Request $request)
+    public function loginPost(Request $request )
     {
+        dd($request);
       $request->validate([
         'email' => 'required',
         'password' => 'required',
@@ -25,11 +27,11 @@ class AuthManager extends Controller
       return redirect(route("login"))
        ->with("error","Invalis Email or Password");
     }
-    function register()
+    public function register()
     {
         return view('auth.register');
     }
-    function registerPost(Request $request){
+    public function registerPost(Request $request){
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
