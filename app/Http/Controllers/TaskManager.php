@@ -36,10 +36,18 @@ class TaskManager extends Controller
         }
     }
 
+    public function dashboard()
+    {
+        $tasks = Tasks::all();
+
+        return view('dashboard',[
+            'tasks' => $tasks
+        ]);
+    }
+
 
     public function listTasks()
     {
-        $tasks = Tasks::all();
 
         return view("Welcome", compact('tasks'));
     }

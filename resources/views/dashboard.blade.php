@@ -1,12 +1,13 @@
 @extends("layouts.app")
-<x-app-layout>
+
+@section('content')
+<h1>List of Tasks</h1>
+<div>
+    @foreach ($tasks as $task)
+    <p>{{$task-> title}}</p>
+    @endforeach
+
+</div>
 
 
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@endsection
