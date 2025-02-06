@@ -40,7 +40,7 @@ class TaskManager extends Controller
 
     public function dashboard()
     {
-        $tasks = Tasks::where("status", NULL)->get();
+        $tasks = Tasks::get();
 
         return view('dashboard',[
             'tasks' => $tasks
