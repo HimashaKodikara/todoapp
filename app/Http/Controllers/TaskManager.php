@@ -61,7 +61,7 @@ class TaskManager extends Controller
     }
 
 
-    public function updateTask(Request $request, $id)
+    public function updateTask( $id)
     {
         $request->validate([
             'title' => 'required',
@@ -79,6 +79,13 @@ class TaskManager extends Controller
             return redirect(route("tasks.add"));
 
         }
+    }
+
+    public function updaeTaskStatus($id){
+        if(Tasks::where('id', $id)->update(['status' =>"complete"])){
+            return redirect(route("dashboard"))->with("success","Task Completed");
+        }
+        return redirect(route("dashboard"))->with("error","error occur");
     }
 
     public function deleteTask($id)

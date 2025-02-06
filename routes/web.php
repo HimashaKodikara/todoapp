@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/tasks/edit/{id}', [TaskManager::class, 'editTask'])->name('tasks.edit');
     Route::post('/tasks/update/{id}', [TaskManager::class, 'updateTask'])->name('tasks.update');
     Route::get('/tasks/delete/{id}', [TaskManager::class, 'deleteTask'])->name('tasks.delete');
+    Route::get('tasks/status/{id}', [TaskManager::class,'updaeTaskStatus']) ->name('tasks.status.updated');
 
 });
 require __DIR__.'/auth.php';

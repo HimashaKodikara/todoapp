@@ -32,6 +32,7 @@
         <th>Title</th>
         <th>Deadline</th>
         <th>Description</th>
+        <th>Status</th>
 
     </thead>
     <tbody>
@@ -41,6 +42,7 @@
             <td>{{$task->title}}</td>
             <td>{{$task->deadline}}</td>
             <td>{{$task->description}}</td>
+            <td><a href="{{route('tasks.status.updated',$task->id)}}">completed</a></td>
 
         </tr>
 
