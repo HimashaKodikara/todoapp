@@ -39,7 +39,7 @@ class TaskManager extends Controller
 
     public function dashboard()
     {
-        $tasks = Tasks::all();
+        $tasks = Tasks::where("status", NULL)->get();
 
         return view('dashboard',[
             'tasks' => $tasks
@@ -61,25 +61,7 @@ class TaskManager extends Controller
     }
 
 
-    public function updateTask( $id)
-    {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'deadline' => 'required|date'
-        ]);
 
-        $task = new Task();
-        $task->title = $request->title;
-        $task->description = $request->description;
-        $task->deadline = $request->deadline;
-
-
-        if($task->save()){
-            return redirect(route("tasks.add"));
-
-        }
-    }
 
     public function updaeTaskStatus($id){
         if(Tasks::where('id', $id)->update(['status' =>"complete"])){
@@ -90,9 +72,9 @@ class TaskManager extends Controller
 
     public function deleteTask($id)
     {
-        $task = Task::findOrFail($id);
-        $task->delete();
-
-        return redirect()->route('dashboard')->with('success', 'Task deleted successfully');
+        if(Tasks::where('id', $id)->delete()){
+            return redirect(route("dashboard"))->with("success","Task deleted");
+        }
+        return redirect(route("dashboard"))->with("error","error occur deleting");
     }
 }

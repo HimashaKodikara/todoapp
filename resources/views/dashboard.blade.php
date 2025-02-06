@@ -28,11 +28,12 @@
       </div>
    <table id="myTable">
     <thead>
-        <th>Index</th>
+        <th >Index</th>
         <th>Title</th>
         <th>Deadline</th>
         <th>Description</th>
         <th>Status</th>
+        <th></th>
 
     </thead>
     <tbody>
@@ -42,7 +43,8 @@
             <td>{{$task->title}}</td>
             <td>{{$task->deadline}}</td>
             <td>{{$task->description}}</td>
-            <td><a href="{{route('tasks.status.updated',$task->id)}}">completed</a></td>
+            <td class="d-flex justify-content-center"><a href="{{route('tasks.status.updated',$task->id)}}" class="bg-center btn btn-success ">completed</a></td>
+            <td class=" justify-content-center"><a href="{{route('tasks.delete',$task->id)}}" class="btn btn-danger">delete</a></td>
 
         </tr>
 
