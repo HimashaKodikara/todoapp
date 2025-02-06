@@ -27,14 +27,18 @@ class TaskManager extends Controller
             'description' => $request->description,
             'deadline' => $request->deadline,
         ]);
+if($task->save()){
+    return redirect()->route('dashboard')->with('success', 'Task added successfully');
 
-        return redirect()->route('tasks.list')->with('success', 'Task added successfully');
+}
+return redirect(route("task.add"))->with("error","Task Not added");
+
     }
 
     public function listTasks()
     {
         $tasks = Tasks::all();
-        return view('tasks.list', compact('tasks'));
+        return view("Welcom", compact('tasks'));
     }
 
 
@@ -70,6 +74,6 @@ class TaskManager extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return redirect()->route('tasks.list')->with('success', 'Task deleted successfully');
+        return redirect()->route('dashboard')->with('success', 'Task deleted successfully');
     }
 }

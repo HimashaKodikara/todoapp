@@ -3,7 +3,7 @@
 @section("content")
 <div class="p-3 mx-auto sh-adow-sm card" style="max-width: 500px">
     <div class="text-center fs-3 fw-bold">Add New Task</div>
-    <form method="POST" action="">
+    <form method="POST" action={{route("tasks.store")}}>
         @csrf
 
         <div class="mb-3">
@@ -15,7 +15,7 @@
         <div class="mb-3">
             <textarea class="form-control" rows="3" name="description" placeholder="Task Description"></textarea>
         </div>
-        <a href="{{route('tasks.list')}}" class="btn btn-success w-100">Submit</a>
+        <a href="{{route('dashboard')}}" class="btn btn-success w-100">Submit</a>
 
 
     </form>
