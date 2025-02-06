@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 //use App\Models\Task;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddTask;
 
 class TaskManager extends Controller
 {
@@ -14,7 +15,7 @@ class TaskManager extends Controller
     }
 
 
-    public function addTaskPost(Request $request)
+    public function addTaskPost(AddTask $request)
     {
         try{
             $request->validate([
