@@ -39,7 +39,8 @@ class TaskManager extends Controller
     public function listTasks()
     {
         $tasks = Tasks::all();
-        return view("Welcom", compact('tasks'));
+        bb($tasks);
+        return view("Welcome", compact('tasks'));
     }
 
 
