@@ -28,6 +28,7 @@ class TaskManager extends Controller
             $task->description = $request->description;
             $task->deadline = $request->deadline;
             $task->save();
+            return redirect()-> route('dashboard');
 
 
 
