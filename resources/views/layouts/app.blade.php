@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 
@@ -16,6 +17,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href={{ asset('assets\css\bootstrap.min.css') }} rel="stylesheet">
     @yield('style')
+    <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+
 </head>
 
 <body class="m-5 d-flex flex-column h-100">
@@ -26,8 +29,12 @@
     <main class="flex-shrink-0">
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
     @include('layouts.footer')
-
+    <script>
+        let table = new DataTable('#myTable');
+        </script
 </body>
 
 </html>
