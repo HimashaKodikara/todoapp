@@ -19,7 +19,7 @@
             </li>
           </ul>
 
-          <a href="{{ route('tasks.add') }}" class="btn btn-outline-success">Add Task</a>
+          <a href="{{route('tasks.add')}}" class="btn btn-outline-success">Add Task</a>
 
         </div>
       </div>
