@@ -15,7 +15,9 @@
         <div class="mb-3">
             <textarea class="form-control" rows="3" name="description" placeholder="Task Description"></textarea>
         </div>
-        <button type="submit" class="btn btn-success w-100">Submit</button>
+        <a href="{{route('tasks.list')}}" class="btn btn-success w-100">Submit</a>
+
+
     </form>
 </div>
 @endsection

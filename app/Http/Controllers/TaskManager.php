@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Tasks;
+use Illuminate\Http\Request;
 
 class TaskManager extends Controller
 {
@@ -32,14 +33,14 @@ class TaskManager extends Controller
 
     public function listTasks()
     {
-        $tasks = Task::all();
+        $tasks = Tasks::all();
         return view('tasks.list', compact('tasks'));
     }
 
 
     public function editTask($id)
     {
-        $task = Task::findOrFail($id);
+        $task = Tasks::findOrFail($id);
         return view('tasks.edit', compact('task'));
     }
 
