@@ -9,6 +9,7 @@ class Tasks extends Model
 {
     use HasFactory;
 
+
      protected $filable=[
         'title',
         'description',

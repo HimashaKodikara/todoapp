@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+//use App\Models\Task;
 use App\Models\Tasks;
 use Illuminate\Http\Request;
 
@@ -16,24 +16,25 @@ class TaskManager extends Controller
 
     public function addTaskPost(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'deadline' => 'required'
-        ]);
+        try{
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'deadline' => 'required'
+            ]);
 
-        Task::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'deadline' => $request->deadline,
-        ]);
-if($task->save()){
-    return redirect()->route('dashboard')->with('success', 'Task added successfully');
+            $task = new Tasks();
+            $task->title = $request->title;
+            $task->description = $request->description;
+            $task->deadline = $request->deadline;
+            $task->save();
 
-}
-return redirect(route("task.add"))->with("error","Task Not added");
 
+        }catch(Exception $e){
+            return redirect()->route('dashboard');
+        }
     }
+
 
     public function listTasks()
     {
