@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskManager;
+use App\Models\Task;
 
 Route::get('/', function () {
     return redirect()->route('login'); // Redirect to the login page

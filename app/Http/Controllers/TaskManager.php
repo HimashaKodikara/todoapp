@@ -52,14 +52,16 @@ class TaskManager extends Controller
             'deadline' => 'required|date'
         ]);
 
-        $task = Task::findOrFail($id);
-        $task->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'deadline' => $request->deadline,
-        ]);
+        $task = new Task();
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->deadline = $request->deadline;
 
-        return redirect()->route('tasks.list')->with('success', 'Task updated successfully');
+
+        if($task->save()){
+            return redirect(route("tasks.add"));
+
+        }
     }
 
     public function deleteTask($id)
