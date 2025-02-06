@@ -2,14 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskManager; // Corrected namespace
+use App\Http\Controllers\TaskManager;
 
 Route::get('/', function () {
     return redirect()->route('login'); // Redirect to the login page
 });
 
 
-require __DIR__.'/auth.php';
+
 
 
 Route::middleware('auth')->group(function () {
@@ -23,6 +23,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Task routes
-    Route::get('task/add', [TaskManager::class, 'addTask'])->name('task.add');
+
+
+    Route::get('/tasks', [TaskManager::class, 'listTasks'])->name('tasks.list');
+    Route::get('/tasks/add', [TaskManager::class, 'addTask'])->name('tasks.add');
+    Route::post('/tasks/add', [TaskManager::class, 'addTaskPost'])->name('tasks.store');
+    Route::get('/tasks/edit/{id}', [TaskManager::class, 'editTask'])->name('tasks.edit');
+    Route::post('/tasks/update/{id}', [TaskManager::class, 'updateTask'])->name('tasks.update');
+    Route::get('/tasks/delete/{id}', [TaskManager::class, 'deleteTask'])->name('tasks.delete');
+
 });
+require __DIR__.'/auth.php';
