@@ -28,6 +28,7 @@ class TaskManager extends Controller
             $task->description = $request->description;
             $task->deadline = $request->deadline;
             $task->save();
+            return redirect()->route('dashboard');
 
 
         }catch(Exception $e){
@@ -39,7 +40,7 @@ class TaskManager extends Controller
     public function listTasks()
     {
         $tasks = Tasks::all();
-        bb($tasks);
+
         return view("Welcome", compact('tasks'));
     }
 
