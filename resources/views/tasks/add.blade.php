@@ -13,7 +13,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <input type="datetime-local" name="deadline" class="form-control" >
+                <input type="datetime-local" name="deadline" class="form-control">
                 @error('deadline')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -21,8 +21,8 @@
             <div class="mb-3">
                 <textarea class="form-control" rows="3" name="description" placeholder="Task Description"></textarea>
                 @error('deadline')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <button class="btn btn-success w-100">Submit</a></button>
 

@@ -73,14 +73,17 @@ class TaskManager extends Controller
 
     public function updateTask(Request $request,$id){
         $task= Tasks::findOrFail($id);
+        try{
+            $task->title = $request->title;
+            $task->description = $request->description ;
+            $task->deadline = $request->deadline ;
 
-        $task->title = $request->title;
-        $task->description = $request->description ;
-        $task->deadline = $request->deadline ;
+            $task->save();
 
-        $task->save();
-
-        return redirect()->route('dashboard')->with('success', 'Task updated successfully');
+            return redirect()->route('dashboard')->with('success', 'Task updated successfully');
+      }catch(Exception $e){
+        return redirect()->route('dashboard')->with('error', 'Error Updating');
+     }
     }
 
     public function deleteTask($id)
